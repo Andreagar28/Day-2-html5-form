@@ -30,19 +30,21 @@
                         <div class="form-row">
                             <div class="form-group col-md-5">
                                 <label for="inputcard">Card #</label>
-                                <input type="card" class="form-control" id="inputcard" placeholder="XXXXXXXXXXXXXXXX">
+                                <input required type="number"  class="form-control" id="inputcard" placeholder="XXXXXXXXXXXXXXXX">
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label for="inputcvc">#CVC</label>
-                                <input type="text" maxlength="4" class="form-control" id="inputcvc" placeholder="0000">
+                                <input required oninput="javascript: if (this.value.length > this.maxLength) {this.value = this.value.slice(0, this.maxLength);}"
+                                type = "number"
+                                maxlength = "4"  class="form-control" id="inputcvc" placeholder="0000">
                             </div>
 
                             <div class="form-group col-md-5">
                                 <label for="inputamount">Amount</label>
                                 <div class="d-flex align-items-baseline">
-                                    <span class="mr-1">$</span><input type="text" class="form-control" id="inputamount"
-                                        placeholder="Amount" width="100%">
+                                    <span class="mr-1">$</span><input required type="number" class="form-control" id="inputamount"
+                                        placeholder="Amount" width="100%"  oninput="javascript: if (this.value.length > this.maxLength) {this.value = this.value.slice(0, this.maxLength);}" maxlength = "15"> 
                                 </div>
                             </div>
 
@@ -54,12 +56,14 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputfirstname">First Name</label>
-                                <input type="text" class="form-control" id="inputfirstname" placeholder="">
+                                <input required class="form-control" id="inputfirstname" placeholder="" onkeypress="return (event.charCode > 64 && 
+event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label for="inputlastname">Last Name</label>
-                                <input type="text" class="form-control" id="inputlastname" placeholder="">
+                                <input required type="text" class="form-control" id="inputlastname" placeholder="" onkeypress="return (event.charCode > 64 && 
+                                event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
                             </div>
                         </div>
 
@@ -67,13 +71,14 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputcity">City</label>
-                                <input type="text" class="form-control" id="inputcity" placeholder="">
+                                <input required type="text" class="form-control" id="inputcity" placeholder="" onkeypress="return (event.charCode > 64 && 
+                                event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
                             </div>
 
 
                             <div class="form-group col-md-3">
                                 <label for="inputState">State</label>
-                                <input type="text" class="form-control" name="state" list="exampleList" id="inputstate"
+                                <input required type="text" class="form-control" name="state" list="exampleList" id="inputstate"
                                     placeholder="Pick a state">
                                 <datalist id="exampleList">
                                     <option value="Spain">
@@ -85,7 +90,7 @@
 
                             <div class="form-group col-md-3">
                                 <label for="inputpostalcode">Postal Code</label>
-                                <input type="text" class="form-control" id="inputpostalcode" placeholder="">
+                                <input required  class="form-control" id="inputpostalcode" placeholder=""  pattern="_[a-zA-Z0-9]+" minlength="4" maxlength="10" >
                             </div>
                         </div>
                         <!-- Cuarto Row -->
@@ -93,13 +98,13 @@
                             <div class="form-group col-6">
                                 <label for="inputcity">We accept:</label>
                                 <div class="form-inline bg-secondary col-6 form-control input-lg col">
-                                    <input type="radio" name="radius-card" value=""><i
+                                    <input required type="radio" name="radius-card" value=""><i
                                         class="fab fa-cc-mastercard bg-secondary text-white col"></i>
-                                    <input type="radio" name="radius-card" value=""><i
+                                    <input required type="radio" name="radius-card" value=""><i
                                         class="fab fa-cc-visa bg-secondary text-white col"></i>
-                                    <input type="radio" name="radius-card"><i
+                                    <input required type="radio" name="radius-card"><i
                                         class="fab fa-cc-diners-club bg-secondary text-white col"></i>
-                                    <input type="radio" name="radius-card"><i
+                                    <input required type="radio" name="radius-card"><i
                                         class="fab fa-cc-amex bg-secondary text-white col"></i>
                                 </div>
                             </div>
@@ -107,7 +112,7 @@
                             <div class="form-group col-6">
                                 <div class="form-floating">
                                     <label for="form-control">Message</label>
-                                    <textarea id="message" class="form-control"></textarea>
+                                    <textarea id="message" class="form-control" maxlength="60"></textarea>
                                     <label for="form-control" class="h6 text-secondary mt-1">Add any notes here</label>
 
 
@@ -126,7 +131,7 @@
                 <div style="border-top: 1px solid lightgray;"
                     class="d-flex justify-content-end align-items-baseline bg-light px-2 py-2">
                     <div class="justify-content-end my-1">
-                        <input class="btn btn-primary m-1" type="submit" value="Send" id="button-send">
+                        <input required class="btn btn-primary m-1" type="submit" value="Send" id="button-send">
                         <button type="button" class="btn btn-secondary">Cancel</button>
                     </div>
                 </div>
